@@ -52,3 +52,4 @@ en deuxieme parametre , elle prend une fonction callback qqui a pour but d'affic
 */
 
 mongoose.connect(db)
+console.log("server");
