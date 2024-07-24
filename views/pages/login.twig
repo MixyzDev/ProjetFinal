@@ -1,0 +1,44 @@
+{% extends "../layout/base.twig" %}
+{% block style %}
+    <link rel="stylesheet" href="./assets/CSS/log.css">
+{% endblock %}
+
+{% block title %}
+    <title>{{title}}</title>
+{% endblock %}
+
+{% block main %}
+    <main>
+        <section class="full-screen-image-container">
+            <img src="/assets/images/desktop-wallpaper-backgrounds-flex-banner-design-banner-design.jpg" alt="fond ecran" class="full-screen-image">
+            <div class="overlay">
+            <a href="/main" class="back-link"> -- retour</a>
+                <div class="form-container">
+                    <h2>Formulaire de connexion</h2>
+                    <form action="./login" method="POST">
+                        <div>
+                            <label for="mail">Votre E-mail</label>
+                            <input id="mail" type="text" name="mail">
+                            {% if error %}
+                                <p>{{error.mail.message}}</p>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <label for="password">Votre Mot de passe</label>
+                            <input id="password" type="password" name="password">
+                            {% if error %}
+                                <p>{{error.password.message}}</p>
+                            {% endif %}
+                        </div>
+                        {% if errorAuth %}
+                            <p>{{erroAuth}}</p>
+                        {% endif %}
+                        <div>
+                            <button type="submit">Connexion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

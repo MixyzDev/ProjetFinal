@@ -1,0 +1,23 @@
+{% extends "../layout/base.twig" %}
+{% block style %}
+	<link rel="stylesheet" href="./assets/CSS/main.css">
+{% endblock %}
+
+{% block title %}
+	<title>{{title}}</title>
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section>
+			<div class="full-screen-image-container">
+				<img src="/assets/images/desktop-wallpaper-backgrounds-flex-banner-design-banner-design.jpg" alt="fond ecran" class="full-screen-image">
+				<div class="overlay">
+					<a href="/signin" class="signin-link">Inscription</a>
+                    <a href="/login" class="login-link">Connexion</a>
+					<h2>Bienvenue sur Where2Meet</h2>
+				</div>
+			</div>
+		</section>
+	</main>
+{% endblock %}

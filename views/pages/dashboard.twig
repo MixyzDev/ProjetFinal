@@ -1,0 +1,40 @@
+{% extends "../layout/base.twig" %}
+{% block style %}
+    <link rel="stylesheet" href="./assets/CSS/dashboard.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+{% endblock %}
+
+{% block title %}
+    <title>{{title}}</title>
+{% endblock %}
+
+{% block main %}
+    <main>
+        <section class="full-screen-image-container">
+            <img src="/assets/images/desktop-wallpaper-backgrounds-flex-banner-design-banner-design.jpg" alt="fond ecran" class="full-screen-image">
+            <div class="overlay">
+                <div class="dashboard-content">
+                    <h2>Dashboard</h2>
+                    {% for activity in user.activity %}
+                        <article class="activity-item">
+                            <h3>{{activity.title}}</h3>
+                            <div class="activity-actions">
+                                <a href="/activityupdate/{{activity.id}}" class="activity-link">Modifier l'activité</a>
+                                <a href="/activitydelete/{{activity.id}}" class="activity-link">Supprimer l'activité</a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                    <!-- Map container -->
+                    <div id="map" class="map-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block script %}
+<script src="/assets/JS/dash.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+{% endblock %}

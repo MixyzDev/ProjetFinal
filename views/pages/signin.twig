@@ -1,0 +1,49 @@
+{% extends "../layout/base.twig" %}
+{% block style %}
+    <link rel="stylesheet" href="./assets/CSS/sign.css">
+{% endblock %}
+
+{% block title %}
+	<title>{{title}}</title>
+{% endblock %}
+
+{% block main %}
+	<main>
+		<section class="full-screen-image-container">
+			<img src="/assets/images/desktop-wallpaper-backgrounds-flex-banner-design-banner-design.jpg" alt="fond ecran" class="full-screen-image">
+			<div class="overlay">
+				<div class="form-container">
+                    <a href="/main" class="back-link">-- retour</a>
+					<h2>Formulaire d'inscription</h2>
+					<form action="./signin" method="POST">
+						<div>
+							<label for="name">Votre Nom</label>
+							<input id="name" type="text" name="name">
+						</div>
+						<div>
+							<label for="firstname">Votre Prénom</label>
+							<input id="firstname" type="text" name="firstname">
+						</div>
+						<div>
+							<label for="mail">Votre E-mail</label>
+							<input id="mail" type="text" name="mail">
+							{% if error %}
+								<p>{{error.mail.message}}</p>
+							{% endif %}
+						</div>
+						<div>
+							<label for="password">Votre Mot de passe</label>
+							<input id="password" type="password" name="password">
+							{% if error %}
+								<p>{{error.password.message}}</p>
+							{% endif %}
+						</div>
+						<div>
+							<button type="submit">Envoyer</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+{% endblock %}
